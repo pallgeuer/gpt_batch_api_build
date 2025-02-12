@@ -1,0 +1,13 @@
+Build
+-----
+
+- Get/activate the minimum Python version to be supported by the package (e.g. in a venv or conda)
+- Make sure this Python version has 'build installed:
+	pip install build
+
+- Build the package (in the directory with pyproject.toml):
+	python -m build
+- Examine the produced output files:
+	dist/gpt_batch_api-*.tar.gz
+	dist/gpt_batch_api-*-py3-none-any.whl
+	gpt_batch_api.egg-info/*
