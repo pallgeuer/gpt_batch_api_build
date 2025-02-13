@@ -2,3 +2,4 @@
 *~
 /dist/
 /gpt_batch_api.egg-info/
+/wandb/
