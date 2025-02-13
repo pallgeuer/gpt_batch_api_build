@@ -19,7 +19,7 @@ Clone
 	git submodule sync --recursive
 	git submodule update --init --recursive
 
-- Check out a particular release:
+- Check out a particular release (e.g. version 1.0.0):
 	git checkout v1.0.0
 	git submodule status
 
@@ -40,7 +40,7 @@ Build
 - Test a local installation of the wheel:
 	conda create -n gpt_batch_api_test python=3.12
 	conda activate gpt_batch_api_test
-	pip install dist/gpt_batch_api-1.0.0-py3-none-any.whl
+	pip install dist/gpt_batch_api-*-py3-none-any.whl
 	cd ~  # <-- Just to be sure there is no gpt_batch_api directory on the path...
 	python
 		import gpt_batch_api
@@ -60,3 +60,15 @@ Build
 	python -m gpt_batch_api.wandb_configure_view --dst_entity ENTITY  # <-- [Substitute correct ENTITY! / Only need to execute this once ever per project!] Then go to https://wandb.ai/ENTITY/gpt_batch_api and select the saved view called 'GPT Batch API', and then click 'Copy to my workspace'
 	# Output files: Refer to /tmp/gpt_batch_api_tasks directory
 	# Note: If task_dir is not specified then a tasks directory will be auto-created inside the installed site-packages location, which is probably not desired in general
+
+PyPi Release
+------------
+
+- Get/activate a Python version and ensure it has 'twine' installed:
+	pip install twine
+
+- Upload the wheel and source distribution (PYPI_API_TOKEN is pypi-...):
+	twine upload --username __token__ --password PYPI_API_TOKEN dist/*
+
+- View result:
+	https://pypi.org/project/gpt-batch-api
