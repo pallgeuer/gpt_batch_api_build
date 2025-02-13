@@ -1,3 +1,27 @@
+Clone
+-----
+
+- Clone the repo:
+	git clone --recurse-submodules HOSTURL:WORKSPACE/gpt_batch_api_build.git
+	cd gpt_batch_api_build
+	git submodule update --init --recursive
+
+- Initialize local config:
+	git config --local submodule.recurse true
+	git config --local push.recurseSubmodules on-demand
+	git config --local diff.submodule log
+	git config --local status.submodulesummary true
+	git config --local alias.sdiff '!'"git diff && git submodule foreach 'git diff'"
+	git config --local alias.supdate 'submodule update --remote --rebase'
+
+- Update an existing clone:
+	git pull --rebase
+	git submodule sync --recursive
+	git submodule update --init --recursive
+
+- Check out a particular release:
+	git checkout v1.0.0
+
 Build
 -----
 
