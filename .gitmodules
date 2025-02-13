@@ -1,4 +1,4 @@
 [submodule "gpt_batch_api"]
 	path = gpt_batch_api
-	url = git@git.informatik.uni-hamburg.de:wtmstaff/gpt_batch_api.git
+	url = ../gpt_batch_api.git
 	branch = master
