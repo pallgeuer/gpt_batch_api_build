@@ -21,6 +21,7 @@ Clone
 
 - Check out a particular release:
 	git checkout v1.0.0
+	git submodule status
 
 Build
 -----
