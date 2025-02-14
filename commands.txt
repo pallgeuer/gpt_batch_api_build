@@ -4,7 +4,6 @@ Clone
 - Clone the repo:
 	git clone --recurse-submodules HOSTURL:WORKSPACE/gpt_batch_api_build.git
 	cd gpt_batch_api_build
-	git submodule update --init --recursive
 
 - Initialize local config:
 	git config --local submodule.recurse true
