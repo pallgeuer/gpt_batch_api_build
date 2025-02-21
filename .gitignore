@@ -3,4 +3,5 @@
 /build/
 /dist/
 /gpt_batch_api.egg-info/
+/tasks/
 /wandb/
