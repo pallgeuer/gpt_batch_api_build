@@ -36,6 +36,7 @@ Build
 - Make sure this Python version has 'build' installed:
 	pip install build
 
+- Ensure the dist/egg-info directories are clean/removed (ignore build/, if it exists)
 - Build the package (in the directory with pyproject.toml):
 	python -m build
 - Examine the produced output files:
