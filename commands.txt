@@ -25,18 +25,22 @@ Clone
 Build
 -----
 
-- Make sure the git state is clean in both gpt_batch_api and gpt_batch_api_build (commit and push to all remotes as required)
+- Make sure the git state is clean in both gpt_batch_api (first) and gpt_batch_api_build (second) => Commit and push to all remotes as required
 
-- Update any version numbers if required (search-replace for the old version number)
+- Update any version numbers if required (search-replace for the old version number and replace it with the new version number)
+- Commit and push gpt_batch_api (first) and gpt_batch_api_build (second) to all remotes:
+	git commit -a -m "Version 1.0.4"
+	git push origin  # <-- For each remote...
+
 - Create new tags in both gpt_batch_api and gpt_batch_api_build for the new version number:
 	git tag -a v1.0.4 -m "Release version 1.0.4"
 	git push origin --tags  # <-- For each remote...
 
-- Get/activate (e.g. in a venv or conda) the minimum Python version to be supported by the package (currently Python 3.12)
+- Get/activate (e.g. in a venv or conda, e.g. conda activate gpt_batch_api) the minimum Python version to be supported by the package (currently Python 3.12)
 - Make sure this Python version has 'build' installed:
 	pip install build
 
-- Ensure the dist/egg-info directories are clean/removed (ignore build/, if it exists)
+- Ensure the dist/egg-info directories are clean/removed (ignore build/ if it exists)
 - Build the package (in the directory with pyproject.toml):
 	python -m build
 - Examine the produced output files:
@@ -66,14 +70,19 @@ Build
 	# Output files: Refer to /tmp/gpt_batch_api_tasks directory
 	# Note: If task_dir is not specified then a tasks directory will be auto-created inside the installed site-packages location, which is probably not desired in general
 
+- Remove the test conda environment:
+	conda env remove -n gpt_batch_api_test
+	cd -  # <-- Revert the cd ~ from above
+
 PyPi Release
 ------------
 
 - Get/activate a Python version and ensure it has 'twine' installed:
 	pip install twine
 
-- Upload the wheel and source distribution (PYPI_API_TOKEN is pypi-...):
-	twine upload --username __token__ --password PYPI_API_TOKEN dist/*
+- Upload the wheel and source distribution:
+	PYPI_API_TOKEN=pypi-...  # <-- CAUTION: Set correct PyPi API token (consider adding a leading space to avoid the command being saved to the bash history)
+	twine upload --username __token__ --password "$PYPI_API_TOKEN" dist/*
 
 - View result:
 	https://pypi.org/project/gpt-batch-api
