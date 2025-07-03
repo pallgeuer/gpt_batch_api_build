@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "gpt_batch_api"
-version = "1.0.3"
+version = "1.0.4"
 authors = [{name = "Philipp Allgeuer"}]
 maintainers = [{name = "Philipp Allgeuer"}]
 description = "Efficiently and robustly use the OpenAI Batch API in Python"

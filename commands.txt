@@ -18,8 +18,8 @@ Clone
 	git submodule sync --recursive
 	git submodule update --init --recursive
 
-- Check out a particular release (e.g. version 1.0.3):
-	git checkout v1.0.3
+- Check out a particular release (e.g. version 1.0.4):
+	git checkout v1.0.4
 	git submodule status
 
 Build
@@ -29,7 +29,7 @@ Build
 
 - Update any version numbers if required (search-replace for the old version number)
 - Create new tags in both gpt_batch_api and gpt_batch_api_build for the new version number:
-	git tag -a v1.0.3 -m "Release version 1.0.3"
+	git tag -a v1.0.4 -m "Release version 1.0.4"
 	git push origin --tags  # <-- For each remote...
 
 - Get/activate (e.g. in a venv or conda) the minimum Python version to be supported by the package (currently Python 3.12)
